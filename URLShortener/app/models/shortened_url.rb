@@ -33,4 +33,8 @@ class ShortenedUrl < ApplicationRecord
     )
   end
 
+  belongs_to :submitter,
+    primary_key: :id, # User's id
+    foreign_key: :user_id, # this ShortenedUrl's user_id
+    class_name: :User
 end
