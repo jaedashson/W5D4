@@ -19,5 +19,14 @@ class Course < ApplicationRecord
     through: :enrollments, # method in Course
     source: :user
 
-    #prerequisite
+  belongs_to :prerequisite,
+    foreign_key: :prereq_id, # This Course's prereq_id
+    primary_key: :id, # prerequisite Course's id
+    class_name: :Course,
+    optional: true
+
+  belongs_to :instructor,
+    foreign_key: :instructor_id,
+    primary_key: :id,
+    class_name: :User
 end
