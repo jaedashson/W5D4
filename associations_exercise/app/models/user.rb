@@ -21,4 +21,9 @@ class User < ApplicationRecord
     foreign_key: :instructor_id, # Course's instructor_id
     primary_key: :id, # Instructor's (User) id
     class_name: :Course
+
+  # Untested method
+  has_many :instructors,
+    through: :enrolled_courses,
+    source: :instructor
 end
